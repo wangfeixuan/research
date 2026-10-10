@@ -1,0 +1,5 @@
+{
+  "validation_accuracy": 0.9848809523809524,
+  "validation_loss": 0.04984293286289487,
+  "note": "Fresh local run; not asserted to be the model used for the submitted Kaggle score."
+}

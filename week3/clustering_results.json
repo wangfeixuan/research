@@ -1,0 +1,26 @@
+[
+  {
+    "representation": "Raw pixels",
+    "dimension": 784,
+    "NMI": 0.5112556762789283,
+    "ARI": 0.3456362409147713
+  },
+  {
+    "representation": "PCA-50",
+    "dimension": 50,
+    "NMI": 0.5294068041745169,
+    "ARI": 0.38226850606601653
+  },
+  {
+    "representation": "PCA-20",
+    "dimension": 20,
+    "NMI": 0.5280333624220966,
+    "ARI": 0.38045580274080604
+  },
+  {
+    "representation": "PCA-10",
+    "dimension": 10,
+    "NMI": 0.5086681226453394,
+    "ARI": 0.34407023046047264
+  }
+]

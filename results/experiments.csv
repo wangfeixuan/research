@@ -1,0 +1,17 @@
+ID,week,model,dataset,representation,samples_evaluated,learning_rate,batch_size,epochs,latent_dim,accuracy,NMI,ARI,kaggle_score,seed,source,notes
+E01,2,MLP,Fashion-MNIST,pixels,10000,0.001,128,5,,0.8804,,,,42,week2/learning_rate_results.json,Week 2 controlled learning-rate run
+E02,3,CNN,Fashion-MNIST,convolutional features,10000,0.001,128,5,,0.9155,,,,42,week3/cnn_mlp_results.json,
+E03,3,CNN,Kaggle Digit Recognizer,convolutional features,8400,0.001,128,5,,0.9848809523809524,,,,42,week3/kaggle_validation_rerun.json,Fresh local validation rerun; separate from submitted model
+E04,3,CNN,Kaggle Digit Recognizer,convolutional features,28000,,,,,,,,0.98353,,Kaggle submission screenshot and week3/kaggle_submission.csv,Successful platform submission; local validation of this exact model not recorded
+E05,3,K-means,Fashion-MNIST,Raw pixels,10000,,,,784,,0.5112556762789283,0.3456362409147713,,42,week3/clustering_results.json,
+E06,3,K-means,Fashion-MNIST,PCA-50,10000,,,,50,,0.5294068041745169,0.38226850606601653,,42,week3/clustering_results.json,
+E07,3,K-means,Fashion-MNIST,PCA-20,10000,,,,20,,0.5280333624220966,0.38045580274080604,,42,week3/clustering_results.json,
+E08,3,K-means,Fashion-MNIST,PCA-10,10000,,,,10,,0.5086681226453394,0.34407023046047264,,42,week3/clustering_results.json,
+E09,4,AE + K-means,Fashion-MNIST,AE-2,10000,0.001,256,5,2,,0.5006824457872885,0.3277629194263296,,42,week4/results/ae_comparison.json,"Test reconstruction MSE=0.031091; trained on 20,000 images"
+E10,4,AE + K-means,Fashion-MNIST,AE-10,10000,0.001,256,5,10,,0.4568000202626402,0.26538687383904214,,42,week4/results/ae_comparison.json,"Test reconstruction MSE=0.023151; trained on 20,000 images"
+E11,4,AE + K-means,Fashion-MNIST,AE-20,10000,0.001,256,5,20,,0.4471475520740309,0.2632847332178301,,42,week4/results/ae_comparison.json,"Test reconstruction MSE=0.023056; trained on 20,000 images"
+E12,4,AE + K-means,Fashion-MNIST,AE-50,10000,0.001,256,5,50,,0.47116448220573315,0.28112258713698396,,42,week4/results/ae_comparison.json,"Test reconstruction MSE=0.023204; trained on 20,000 images"
+E13,5,VAE + K-means,Fashion-MNIST,VAE-2,10000,0.001,256,5,2,,0.53274723449864,0.3578593839937322,,42,week5/results/vae_dimension_comparison.csv,"VAE loss/image=274.7533; trained on 20,000 images"
+E14,5,VAE + K-means,Fashion-MNIST,VAE-10,10000,0.001,256,5,10,,0.5548175750292565,0.39114977413336943,,42,week5/results/vae_dimension_comparison.csv,"VAE loss/image=265.4506; trained on 20,000 images"
+E15,5,VAE + K-means,Fashion-MNIST,VAE-20,10000,0.001,256,5,20,,0.5713279343654171,0.4038465074243614,,42,week5/results/vae_dimension_comparison.csv,"VAE loss/image=272.0214; trained on 20,000 images"
+E16,5,VAE + K-means,Fashion-MNIST,VAE-50,10000,0.001,256,5,50,,0.5094526294492129,0.34776656217868035,,42,week5/results/vae_dimension_comparison.csv,"VAE loss/image=277.4991; trained on 20,000 images"
