@@ -1,4 +1,0 @@
-*.pdf binary
-*.pptx binary
-*.ipynb text eol=lf
-*.csv text eol=lf

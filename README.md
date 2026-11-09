@@ -10,8 +10,8 @@ How does the representation of a Fashion-MNIST image affect K-means clustering? 
 |---|---|
 | [notebooks](notebooks/) | Eight notebooks, ordered by week. Week 4 combines autoencoder training and the latent-clustering exercises in one notebook. |
 | [src](src/) | Model definitions, training routines, classifier preprocessing and random seeds used by the notebooks. |
-| [results](results/) | Recorded experiments, figures, and weekly outputs including the AE comparison used by Week 5. |
-| [report](report/) | Final PDF, editable slides, weekly summaries and scripts for rebuilding the final report and slides. |
+| [results](results/) | Recorded experiments and figures. |
+| [report](report/) | Final PDF, editable slides and weekly PDF summaries. |
 
 ## Run the notebooks
 
@@ -34,6 +34,6 @@ Open the notebooks in this order and run cells from top to bottom.
 4. [Autoencoder and latent clustering](notebooks/week4_autoencoder.ipynb)
 5. [VAE and representation comparison](notebooks/week5_vae.ipynb)
 
-Fashion-MNIST downloads to the ignored data/ directory on first use. The optional Kaggle Digit Recognizer section of the CNN notebook expects train.csv and test.csv under data/kaggle/. The original platform score was 0.98353; the separate local rerun reached 0.98488 validation accuracy. Week 5 reads the saved Week 4 AE dimension comparison. Running experiment cells again can replace result files. The historical experiment log describes the recorded runs.
+Fashion-MNIST downloads to the ignored data/ directory on first use. The optional Kaggle Digit Recognizer section of the CNN notebook expects train.csv and test.csv under data/kaggle/. The original platform score was 0.98353; the separate local rerun reached 0.98488 validation accuracy. Week 5 reads the recorded Week 4 AE-20 scores from results/experiments.csv. Running experiment cells again can replace result files. The historical experiment log describes the recorded runs.
 
-To rebuild the final deliverables from the current result files, run python report/make_report.py and python report/make_presentation.py from the repository root.
+Runtime experiments create additional result files under results/week2 through results/week5. These directories are generated when needed.
