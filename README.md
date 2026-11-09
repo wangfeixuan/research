@@ -1,36 +1,39 @@
-# Research preparation: image representations and clustering
+# Research preparation
 
-This workspace follows the five-week research preparation assignment. The main research question is how raw pixels, PCA, an autoencoder (AE), and a variational autoencoder (VAE) change Fashion-MNIST clustering results.
+How does the representation of a Fashion-MNIST image affect K-means clustering? The five-week project compares raw pixels, PCA, autoencoder codes, and VAE latent means. With ten clusters, VAE-20 achieved NMI 0.5713 and ARI 0.4038 in the recorded five-epoch run. The 10-dimensional VAE had the lowest reconstruction error. These results are from one seed.
 
-## Weekly work
+[Final report](report/final_report.pdf) · [Presentation](report/week5_presentation.pptx) · [Experiment log](results/experiments.csv) · [Figures](results/figures/)
 
-| Week | Main deliverables |
+## Project layout
+
+| Directory | Contents |
 |---|---|
-| 1 | `week1/week1_numpy_practice.ipynb`, `week1/week1_ml_basics.ipynb`, `week1/week1_ml_summary.pdf` |
-| 2 | `week2/week2_pytorch_basics.ipynb`, `week2/week2_mlp_fashion_mnist.ipynb`, learning-rate PDF and plot |
-| 3 | `week3/week3_cnn.ipynb`, `week3/week3_clustering.ipynb`, Kaggle submission CSV and report |
-| 4 | `week4/week4_autoencoder.ipynb`, `week4/week4_latent_clustering.ipynb`, AE comparison table and report |
-| 5 | `week5/week5_vae.ipynb`, five-page final report, ten-slide presentation and figures |
-
-The combined experiment log is [results/experiments.csv](results/experiments.csv). Each week also contains its own result files. The final report is [week5/week5_final_report.pdf](week5/week5_final_report.pdf).
+| [notebooks](notebooks/) | Eight notebooks, ordered by week. Week 4 combines autoencoder training and the latent-clustering exercises in one notebook. |
+| [src](src/) | Model definitions, training routines, classifier preprocessing and random seeds used by the notebooks. |
+| [results](results/) | Recorded experiments, figures, and weekly outputs including the AE comparison used by Week 5. |
+| [report](report/) | Final PDF, editable slides, weekly summaries and scripts for rebuilding the final report and slides. |
 
 ## Run the notebooks
 
-Create the environment from the project folder:
+From the repository root, create a Python 3.12 environment and select its kernel in Jupyter.
 
 ```bash
-python3 -m venv research
-source research/bin/activate
+python3.12 -m venv .venv
+source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m ipykernel install --user --name research --display-name "Python (research)"
+python -m pip install jupyterlab
+python -m jupyterlab
 ```
 
-Start Jupyter from this project folder or one of its subfolders, select the `Python (research)` kernel, then run notebook cells from top to bottom. The notebooks locate the project folder automatically and store Fashion-MNIST under `data/`. Kaggle `train.csv` and `test.csv` are kept in `week3/` and are required only for its Kaggle cells; download these two files from Kaggle before running that section.
+Open the notebooks in this order and run cells from top to bottom.
 
-The original local `research` environment was created with access to system Python packages. The command above creates a fully isolated environment on a fresh machine. `requirements.txt` lists the packages used by these notebooks and the report scripts.
+1. [NumPy practice](notebooks/week1_numpy_practice.ipynb) and [ML basics](notebooks/week1_ml_basics.ipynb)
+2. [PyTorch basics](notebooks/week2_pytorch_basics.ipynb) and [MLP classifier](notebooks/week2_mlp_fashion_mnist.ipynb)
+3. [CNN classifier](notebooks/week3_cnn.ipynb) and [pixel and PCA clustering](notebooks/week3_clustering.ipynb)
+4. [Autoencoder and latent clustering](notebooks/week4_autoencoder.ipynb)
+5. [VAE and representation comparison](notebooks/week5_vae.ipynb)
 
-## Interpretation
+Fashion-MNIST downloads to the ignored data/ directory on first use. The optional Kaggle Digit Recognizer section of the CNN notebook expects train.csv and test.csv under data/kaggle/. The original platform score was 0.98353; the separate local rerun reached 0.98488 validation accuracy. Week 5 reads the saved Week 4 AE dimension comparison. Running experiment cells again can replace result files. The historical experiment log describes the recorded runs.
 
-The four-way Fashion-MNIST comparison used the same 10,000 test images and K-means with ten clusters. VAE-20 reached NMI 0.5713 and ARI 0.4038 in one five-epoch run. This is an initial result; the experiments were not repeated across several random seeds.
-
-The Kaggle platform score was 0.98353. A separate local validation rerun reached 0.98488 accuracy; it is not claimed to be the exact submitted model.
+To rebuild the final deliverables from the current result files, run python report/make_report.py and python report/make_presentation.py from the repository root.

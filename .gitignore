@@ -19,3 +19,7 @@ week5/results/week5_presentation.pptx.png
 /3.pdf
 /Icon*
 /科研任务中文翻译与独立完成手册.docx
+
+results/week5/*.pt
+results/week5/*.npy
+results/week3/kaggle_submission_rerun.csv

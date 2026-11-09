@@ -10,7 +10,7 @@ from pptx.chart.data import CategoryChartData
 from pptx.enum.shapes import MSO_SHAPE
 
 root=Path(__file__).resolve().parent
-results=root/'results'
+results=root.parent/'results'/'week5'
 with (results/'representation_comparison.csv').open() as f: reps=list(csv.DictReader(f))
 with (results/'vae_dimension_comparison.csv').open() as f: dims=list(csv.DictReader(f))
 prs=Presentation(); prs.slide_width=Inches(13.333); prs.slide_height=Inches(7.5)
@@ -79,14 +79,14 @@ table(sl,['Dimension','Recon BCE','VAE loss','NMI','ARI'],[[r['latent_dim'],f"{f
 text(sl,.8,5.55,11.6,1.1,'Lowest reconstruction BCE and VAE loss: d = 10. Best clustering: d = 20.\nA lower VAE loss did not guarantee a higher NMI or ARI.',21,True,NAVY)
 
 sl=base('Reconstruction and generation',8)
-add_picture(sl,results/'vae_reconstructions_10.png',.7,1.45,11.9,2.0)
-add_picture(sl,results/'vae_generated_20.png',4.65,3.6,4.1,3.2)
+add_picture(sl,root.parent/'results'/'figures'/'vae_reconstructions_10.png',.7,1.45,11.9,2.0)
+add_picture(sl,root.parent/'results'/'figures'/'vae_generated_20.png',4.65,3.6,4.1,3.2)
 text(sl,.75,3.8,3.4,2.4,'Top: 10 inputs and their reconstructions.\n\nRight: 20 new images sampled from N(0, I).',18)
 text(sl,9.0,4.1,3.4,1.7,'Many generated images are recognizable but blurry.',19,True,NAVY)
 
 sl=base('Latent space and interpolation',9)
-add_picture(sl,results/'vae_latent_2.png',.7,1.35,5.6,4.9)
-add_picture(sl,results/'vae_interpolation.png',6.5,2.25,5.9,1.0)
+add_picture(sl,root.parent/'results'/'figures'/'vae_latent_2.png',.7,1.35,5.6,4.9)
+add_picture(sl,root.parent/'results'/'figures'/'vae_interpolation.png',6.5,2.25,5.9,1.0)
 text(sl,6.5,3.6,5.8,2.3,'The 2D latent space has some visible class regions, but many colors overlap.\n\nThe sneaker-to-T-shirt interpolation changes gradually.',20)
 
 sl=base('Conclusions and next steps',10)

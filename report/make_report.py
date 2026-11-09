@@ -12,8 +12,8 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, Table, TableStyle
 
 root = Path(__file__).resolve().parent
-results = root / "results"
-out = root / "week5_final_report.pdf"
+results = root.parent / "results" / "week5"
+out = root / "final_report.pdf"
 font = Path(font_manager.findfont('DejaVu Sans'))
 pdfmetrics.registerFont(TTFont('Harmony', str(font)))
 with (results / 'representation_comparison.csv').open() as f:
@@ -46,7 +46,7 @@ def table(rows, widths):
     return t
 
 def img(name, width, height):
-    return Image(str(results / name), width=width*mm, height=height*mm)
+    return Image(str(root.parent / "results" / "figures" / name), width=width*mm, height=height*mm)
 
 def footer(canvas, doc):
     canvas.saveState()
